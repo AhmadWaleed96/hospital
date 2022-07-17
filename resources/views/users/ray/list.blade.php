@@ -73,12 +73,7 @@
                             @foreach ($ray as $ray)
                                 <tr>
                                     <td>
-                                        @if (strpos($ray->picture, 'ray_pictures') !== false)
-                                            <img src="{{ asset('storage/' . $ray->picture) }}" width="50px"
-                                                height="50px">
-                                        @else
-                                            <img src="{{ $ray->picture }}" width="50px" height="50px">
-                                        @endif
+                                        <img src="{{asset('storage/'.$ray->picture)}}" width="60" height="60" alt="User Image">
                                     </td>
                                     <td>{{ $ray->first_name }} {{ $ray->last_name }}</td>
                                     <td>{{ $ray->address }}</td>

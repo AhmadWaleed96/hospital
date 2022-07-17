@@ -46,7 +46,7 @@
                         <a href="{{url('/servicese')}}" class="nav-link">من نحن</a>
                     </li>
                         <button type="button" class="btn btn-outline-success"><a href="{{route('login')}}" class="nav-link">تسجيل الدخول </a></button>
-                
+
 
                 </ul>
             </div>
@@ -94,7 +94,7 @@
         <div class="col-md-6 content" data-aos="fade-left" style="direction: ltr;">
 
             <div class="box" >
-               
+
             <h3 style="margin-left: 260px;color: rgb(21, 226, 35);"> <i class="fas fa-ambulance"></i> قسم خدمات المرضى </h3>
                 <p>الإشراف على راحة المرضى  بالأقسام وكذالك المراجعين للعيادات الخارجية</p>
             </div>
@@ -111,7 +111,7 @@
 
         </div>
 
-      
+
     </div>
 
 </div>
@@ -193,7 +193,9 @@
 <!-- End about2 -->
 
 <footer class="text-center">
-<strong> &copy; 2021-2021 <a href=""> Eng_mosa hmd  </a>.</strong>
+    <strong>    جميع الحقوق محفوظة  {{ now()->year }}-{{ now()->year+1 }} &copy;<a href="#">{{ env('APP_NAME') }}</a>.</strong>
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> {{ env('APP_VERSION') }}
     </footer>
     <!-- End Footer -->
 

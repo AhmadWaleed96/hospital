@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BooksController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', function () {return view('front_end.index');});
+// Route::get('/book', function () {return view('front_end.book');});
 Route::get('/specialty', function () { return view('front_end.specialty');});
 Route::get('/servicese', function () { return view('front_end.services');});
 Route::get('/dates', function () { return view('front_end.dates');});
@@ -32,10 +34,10 @@ Route::get('/treatmenthistory/{doctor}', 'DoctorController@treatmentHistory')->n
 Route::get('/timeschedule/{doctor}', 'TimeScheduleController@timeSchedulesForDoctor')->name('doctor-time-schedules');
 Route::get('/timeschedule/{doctor}/create/', 'TimeScheduleController@createtimeScheduleForDoctor')->name('create-time-schedule-for-doctor');
 Route::get('/gettimeschedulebydoctor/', 'DoctorController@getTimeScheduleByDoctor')->name('get-time-schedule-by-doctor');
-Route::get('/getdayoffschedulebydoctor/', 'DoctorController@getDayoffScheduleByDoctor')->name('get-dayoff-schedule-by-doctor'); 
+Route::get('/getdayoffschedulebydoctor/', 'DoctorController@getDayoffScheduleByDoctor')->name('get-dayoff-schedule-by-doctor');
 
 // End doctors
-// Start 
+// Start
 Route::resource('/accountants', 'AccountantController');
 Route::resource('/users/accountants', 'AccountantController');
 
@@ -50,7 +52,7 @@ Route::resource('/users/ray', 'RayController');
 
 Route::resource('/care', 'CareController');
 Route::resource('/users/care', 'CareController');
-// End 
+// End
 // Start nurses
 Route::resource('/nurses', 'NurseController');
 Route::resource('/users/nurses', 'NurseController');
@@ -106,3 +108,6 @@ Route::get('/gettemplatebyid/', 'LapReportController@getTemplateById')->name('ge
 Route::get('/getpaymentitembyitemid/', 'PaymentItemController@getPaymentItemByItemId')->name('get-payment-item-by-item-id');
 Route::get('/getpaymentitembydoctorid/', 'PaymentItemController@getPaymentItemByDoctorId')->name('get-payment-item-by-doctor_id');
 Route::get('/getuserbyusertype/', 'PublicController@getUserByUserType')->name('get-user-by-user-type');
+// Start books
+Route::resource('books', BooksController::class);
+    Route::post('update_books/{id}' , [BooksController::class , 'update'])->name('update_books');
